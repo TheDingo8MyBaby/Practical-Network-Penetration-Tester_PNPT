@@ -1,8 +1,10 @@
-# Practical Ethical Hacking - The Complete Course
-![](Images/202406172373-1.png)
+# [Practical Ethical Hacking - The Complete Course](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)
+
+
+[![](Images/202406172373-1.png)](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)
 
 -----
-# [Practical Ethical Hacking](https://academy.tcm-sec.com/courses/1152300) Notes:
+# Practical Ethical Hacking Notes:
 -----
 ## These are my personal notes that I am taking, while working through the:
 ### `TCM Security Academy - Practical Ethical Hacking` || Training Course

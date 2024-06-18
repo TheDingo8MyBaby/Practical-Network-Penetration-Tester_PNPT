@@ -213,4 +213,3 @@ If you're reading this though, make sure you *Star* this Repository!
 -----
 -----
 
-**[Practical-Network-Penetration-Tester_PNPT](https://github.com/TheDingo8MyBaby/Practical-Network-Penetration-Tester_PNPT)**
