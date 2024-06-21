@@ -110,11 +110,55 @@ In summary, a MAC address is a unique identifier assigned to the network interfa
 
 -----
 -----
-
 # TCP, UDP, and the Three-Way Handshake
-## Placeholder
-- Placeholder
-	- Placeholder
+## TCP vs UDP (Layer 4)
+- TCP (Transmission Control Protocol)
+	- Connection oriented protocol
+	- Higher reliability
+		- Website
+		- SSH
+		- FTP
+- UDP (User Datagram Protocol)
+	- Connectionless protocol
+		- Streaming Service
+		- DNS
+		- VOIP
+## Scanning
+- Most common scanning is TCP
+	- Three-way handshake
+```
+SYN → SYN ACK → ACK
+```
+## Ports:
+- HTTP
+	- 80
+- HTTPS
+	- 443
+## Connect to a port (443)
+- Send a SYN Packet
+- Sends an ACK Packet back
+
+## Wireshark
+- Start Capture
+	- You can view protocols
+- Establish a TCP Connection
+	- IE.) Go to google and stop Capture
+- Review TCP Packets captured
+![](Images/202406201718-1.png)
+```
+Sending SYN Packet
+192.168.57.139 → 74.125.21.155
+```
+
+```
+Sending SYN ACK Packet
+74.125.21.155 → 192.168.57.139
+```
+
+```
+Receiving ACK Packet back
+192.168.57.139 → 74.125.21.155
+```
 
 -----
 <details>
@@ -140,76 +184,217 @@ In summary, TCP is a reliable, connection-oriented protocol that guarantees deli
 
 -----
 -----
+# Common Ports and Protocols
+## Common Ports a Protocols
+- **TCP**
+	- FTP
+		- 21
+	- SSH
+		- 22
+	- Telnet
+		- 23
+	- SMTP
+		- 25
+	- DNS
+		- 53
+	- HTTP
+		- 80
+	- HTTPS
+		- 443
+	- POP3
+		- 110
+	- SMB
+		- 139
+		- 445
+	- IMAP
+		- 143
+- **UDP**
+	- DNS
+		- 53
+	- DHCP
+		- 67
+		- 68
+	- TFTP
+		- 69
+	- SNMP
+		- 161
+![](Images/202406201770-1.png)
+## TCP Ports
+- FTP (File Transfer Protocol)
+	- Can login to the server, and Drop/Grab a file as needed
+- SSH/Telnet
+	- Telnet = Login to a machine remotely (Clear-Text)
+	- SSH = Secure/Encrypted variation of Telnet
+- SMTP/POP3/IMAP
+	- These all deal with Mail. (Not really going to be covered)
+- DNS (Domain Name System)
+	- Way to resolve IP Addresses to Names
+		- IE.)  Google.com → 172.217.12.100
+- HTTP/HTTPS
+	- Website
+	- Most Websites are HTTPS
+		- HTTP = Cleartext / Unsecure
+- SMB
+	- File shares
+		- Multiple exploits have used SMB
+			- WannaCry
+	- Very Frequently Open
 
-# Placeholder
-## Placeholder
-- Placeholder
-	- Placeholder
+## UDP
+- DHCP
+	- Associates a user to an IP Address at random
+		- Home network, whether it be Dynamic/Static
+			- Static can determine based off MAC
+- TFTP (Trivial FTP)
+- SNMP (Simple Network management Protocol)
 
 -----
 <details>
   <summary>Premade Notes from the above section: </summary>
 
-No Specific Notes for this Section.
+Here are some commonly used ports and the protocols associated with them in computer networking:
 
-If you're reading this though, make sure you *Star* this Repository!
+- FTP (File Transfer Protocol): Port 21 (TCP)
+- SSH (Secure Shell): Port 22 (TCP)
+- Telnet: Port 23 (TCP)
+- SMTP (Simple Mail Transfer Protocol): Port 25 (TCP)
+- DNS (Domain Name System): Port 53 (TCP and UDP)
+- HTTP (Hypertext Transfer Protocol): Port 80 (TCP)
+- HTTPS (Hypertext Transfer Protocol Secure): Port 443 (TCP)
+- DHCP (Dynamic Host Configuration Protocol): Port 67 (UDP) and Port 68 (UDP)
+- POP3 (Post Office Protocol version 3): Port 110 (TCP)
+- IMAP (Internet Message Access Protocol): Port 143 (TCP)
+- SNMP (Simple Network Management Protocol): Port 161 (UDP)
+- RDP (Remote Desktop Protocol): Port 3389 (TCP)
+- NTP (Network Time Protocol): Port 123 (UDP)
+- SMB (Server Message Block): Port 445 (TCP)
+- FTPS (FTP over SSL/TLS): Port 990 (TCP)
+- TFTP (Trivial File Transfer Protocol): Port 69 (UDP)
+- LDAP (Lightweight Directory Access Protocol): Port 389 (TCP and UDP)
+- MySQL: Port 3306 (TCP)
+- RDP (Remote Desktop Protocol): Port 3389 (TCP)
+
+Please note that some protocols use both TCP and UDP, depending on the specific functionality and requirements. Additionally, these port assignments are not exhaustive, and other applications and services may use different ports as well.
 
 </details>
 
 -----
 -----
+# The OSI Model (Layers)
+## P.D.N.T.S.P.A
+- **P**lease
+	- Layer: 1
+		- Physical
+			- Data Cables
+			- Cat6 Cables
+			- Etc...
+- **D**o
+	- Layer: 2
+		- Data
+			- Switching
+			- MAC Addresses
+- **N**ot
+	- Layer: 3
+		- Network
+			- IP Addresses
+			- Routing
+- **T**hrow
+	- Layer: 4
+		- Transport
+			- TCP
+			- UDP
+- **S**ausage
+	- Layer: 5
+		- Session
+			- Session management
+- **P**izza
+	- Layer: 6
+		- Presentation
+			- WMV
+			- JPEG
+			- MOV
+- **A**way
+	- Layer: 7
+		- Application
+			- HTTP
+			- SMTP
 
-# Placeholder
-## Placeholder
-- Placeholder
-	- Placeholder
+## Troubleshooting
+- Start at the Physical Level
+	- End at the Application Level
 
 -----
 <details>
   <summary>Premade Notes from the above section: </summary>
 
-No Specific Notes for this Section.
+The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven distinct layers. Each layer has specific responsibilities and interacts with the layers above and below it. The OSI model provides a structured approach to understanding and designing network protocols and communication systems. Here's a brief overview of each layer:
 
-If you're reading this though, make sure you *Star* this Repository!
+1. Physical Layer: The physical layer is responsible for the transmission and reception of raw unstructured data bits over a physical medium. It defines the electrical, mechanical, and functional characteristics of the physical interface between devices.
+2. Data Link Layer: The data link layer handles the reliable transmission of data frames between directly connected nodes over a physical link. It provides error detection and correction, flow control, and handles access to the physical medium. Ethernet, Wi-Fi, and PPP (Point-to-Point Protocol) are examples of data link layer protocols.
+3. Network Layer: The network layer enables the routing of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols. The IP (Internet Protocol) is a key network layer protocol.
+4. Transport Layer: The transport layer ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer.
+5. Session Layer: The session layer establishes, manages, and terminates communication sessions between applications. It provides synchronization and dialog control mechanisms to enable seamless communication between devices. This layer also handles session checkpointing and recovery.
+6. Presentation Layer: The presentation layer is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system. This layer deals with data syntax and semantics.
+7. Application Layer: The application layer is the closest layer to the end-user and provides services directly to user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. Examples of protocols at this layer include HTTP, SMTP, FTP, and DNS.
+
+The key idea behind the OSI model is to separate the complex task of network communication into manageable layers, with each layer focused on specific functions. This modular approach facilitates interoperability, ease of implementation, and troubleshooting in network systems.
+
+It's important to note that the OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols. However, the OSI model remains a useful reference for understanding network communication and protocols.
 
 </details>
 
 -----
 -----
+# Subnetting (Part 1)
+## Subnet Cheat Sheet
+![](Images/202406201910-1.png)
+## Bits
+![](Images/202406201989-1.png)
+## Switching On
+- If you want to "Switch On" a Bit, it needs to be in Order
+![](Images/202406201918-1.png)
+- You can't skip around, and "Switch On" a later Bit
+![](Images/202406201986-1.png)
 
-# Placeholder
-## Placeholder
-- Placeholder
-	- Placeholder
 
 -----
 <details>
   <summary>Premade Notes from the above section: </summary>
 
-No Specific Notes for this Section.
+Seven Second Subnetting: 
+https://www.youtube.com/watch?v=ZxAwQB8TZsM
 
-If you're reading this though, make sure you *Star* this Repository!
+Subnet Guide: 
+https://drive.google.com/file/d/1ETKH31-E7G-7ntEOlWGZcDZWuukmeHFe/view
+
+Subnetting is the process of dividing a network into smaller subnetworks called subnets. It allows for more efficient use of IP addresses and facilitates network management and routing. Subnetting is commonly used in IPv4 networks.
+
+Subnetting involves borrowing bits from the host portion of an IP address to create a subnet identifier. By doing this, a network can be divided into multiple subnets, each with its own range of IP addresses.
+
+CIDR (Classless Inter-Domain Routing) notation is a method used to represent IP addresses and their corresponding subnet masks. It specifies the network prefix length, which indicates the number of bits used for the network portion of the IP address. CIDR notation is expressed by appending a forward slash (/) followed by the prefix length to the IP address.
+
+Here's an example to illustrate subnetting and CIDR notation:
+
+Consider an IP address: 192.168.0.0/24
+
+In this example, the IP address is in the format of "192.168.0.0" and the "/24" represents the prefix length, indicating that the first 24 bits represent the network portion of the IP address, while the remaining 8 bits represent the host portion.
+
+With a /24 prefix length, the subnet mask for this network would be 255.255.255.0. This means that the first three octets are reserved for the network, and the last octet can be used for addressing hosts within the subnet.
+
+To subnet this network further, additional bits can be borrowed from the host portion. For instance, if we borrow 2 bits, we can create 4 subnets. The subnet mask would become 255.255.255.192 (in binary: 11111111.11111111.11111111.11000000).
+
+The four resulting subnets would be:
+
+1. Subnet 1: 192.168.0.0/26 (network range: 192.168.0.0 - 192.168.0.63)
+2. Subnet 2: 192.168.0.64/26 (network range: 192.168.0.64 - 192.168.0.127)
+3. Subnet 3: 192.168.0.128/26 (network range: 192.168.0.128 - 192.168.0.191)
+4. Subnet 4: 192.168.0.192/26 (network range: 192.168.0.192 - 192.168.0.255)
+
+Each subnet can then be assigned to a different segment or used for different purposes within the network.
+
+CIDR notation provides a concise way to represent networks and subnets by specifying the prefix length. It allows for flexibility in defining network boundaries and enables efficient address allocation in IP networking.
 
 </details>
 
 -----
 -----
-
-# Placeholder
-## Placeholder
-- Placeholder
-	- Placeholder
-
------
-<details>
-  <summary>Premade Notes from the above section: </summary>
-
-No Specific Notes for this Section.
-
-If you're reading this though, make sure you *Star* this Repository!
-
-</details>
-
------
------
-
